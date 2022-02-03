@@ -1,32 +1,12 @@
 #  File: Spiral.py
 
-#  Description:
-
-#  Student Name: Lauren Adams
-
-#  Student UT EID: la27334
-
-#  Partner Name: Siddharth Sundaram
-
-#  Partner UT EID: svs833
-
-#  Course Name: CS 313E
-
-#  Unique Number: 51135
-
-#  Date Created: 1-27-2022
-
-#  Date Last Modified:
-
 # Input: n is an odd integer between 1 and 100
 # Output: returns a 2-D list representing a spiral
 #         if n is even add one to n
 
 def create_spiral(n):
-
     rows,cols=(n,n)
     side=int((rows/2)-0.5)
-
     ar=[[0 for i in range(cols)]for j in range(rows)]
 
     value=1
@@ -34,7 +14,6 @@ def create_spiral(n):
     lr=side
     ar[ud][lr]=value
     value+=1
-
     counter=1
     for r in range(0,side):
         lr+=1
@@ -66,25 +45,15 @@ def create_spiral(n):
             value+=1
             x+=1
         counter+=1
-
-    #for row in ar:
-    #    print(row)
-
-    #for x in range(4):sum_adjacent_numbers(ar,int(input()))
+        
     lis=[]
     while 1:
         try:
             inp=int(input())
             lis.append(inp)
         except:break
-
     for x in range(len(lis)):sum_adjacent_numbers(ar,lis[x])
 
-    
-# Input: spiral is a 2-D list and n is an integer
-# Output: returns an integer that is the sum of the
-#         numbers adjacent to n in the spiral
-#         if n is outside the range return 0
 def sum_adjacent_numbers(spiral, n):
     if(n>(len(spiral)**2)or n<1):print("Index not Found")
     else:
@@ -93,9 +62,7 @@ def sum_adjacent_numbers(spiral, n):
             for j in range(len(spiral)):
                 if(spiral[i][j]==n):ud,lr=(i,j)
         ind=spiral[ud][lr]
-        #print(ud)
-        #print(lr)
-        #print(ind)
+
         a,b,c,d,e,f,g,h=(-1,-1,-1,-1,-1,-1,-1,-1)
         if(ud==0):a,b,c=(0,0,0)
         if(ud==len(spiral)-1):f,g,h=(0,0,0)
@@ -110,35 +77,10 @@ def sum_adjacent_numbers(spiral, n):
         if(f!=0):f=spiral[ud+1][lr-1]
         if(g!=0):g=spiral[ud+1][lr]
         if(h!=0):h=spiral[ud+1][lr+1]
-
         sum=a+b+c+d+e+f+g+h
         print(sum)
 
-
-
-
-
-    #print("REMOVE THIS PRINT AND ADD YOUR CODE")
-
-
 def main():
-    #for y in range(0, m):
-    #    str1 = input()
-    #    str2 = input()
-    #    longest_subsequence(str1, str2)
-
     create_spiral(int(input()))
-
-
-# read the input file
-
-# create the spiral
-
-# add the adjacent numbers
-
-# print the result
-
-#if __name__ == "__main__":
-#    main()
 
 main()
